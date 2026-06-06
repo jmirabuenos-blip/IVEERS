@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>IVEERS — Isarog Volunteer Environmental Emergency Response Service</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --g1:#0b3d1a;
+  --g2:#145c28;
+  --g3:#1e8038;
+  --g4:#29a84a;
+  --b1:#071525;
+  --b2:#0d2e4a;
+  --b3:#166390;
+  --teal:#1b9e8e;
+  --cream:#f0ece3;
+  --warm:#e8dfd0;
+  --text:#1a1a17;
+}
+
+body{font-family:'DM Sans',sans-serif;background:#f0ece3;color:#1a1a17;overflow-x:hidden}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;width:100%;z-index:990;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;height:68px;
+  background:rgba(11,61,26,0.97);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-logo{width:38px;height:38px;object-fit:contain}
+.nav-wordmark{font-family:'Oswald',sans-serif;font-size:1.35rem;font-weight:600;letter-spacing:4px;color:#fff}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.78rem;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:#fff}
+.nav-join{background:#1e8038;color:#fff;border:none;padding:9px 24px;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:1px;cursor:pointer;transition:background 0.2s}
+.nav-join:hover{background:#29a84a}
+
+/* ─── HERO ─── */
+#hero{
+  height:100vh;min-height:600px;
+  display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
+  margin-top:68px;
+}
+.hero-left{
+  background:#0b3d1a;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 64px;position:relative;
+}
+.hero-left::after{
+  content:'';position:absolute;right:-1px;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,transparent,rgba(255,255,255,0.15),transparent);
+}
+.hero-kicker{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:24px;font-weight:400}
+.hero-title{font-family:'Oswald',sans-serif;font-size:clamp(3.5rem,7vw,6.5rem);font-weight:700;line-height:0.92;letter-spacing:2px;color:#fff;margin-bottom:28px}
+.hero-title em{font-style:normal;color:#29a84a;display:block}
+.hero-desc{font-family:'Source Serif 4',serif;font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.6);font-weight:300;max-width:380px;margin-bottom:40px}
+.hero-actions{display:flex;gap:14px}
+.btn-solid{background:#29a84a;color:#fff;padding:13px 32px;font-size:0.83rem;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s}
+.btn-solid:hover{background:#1e8038}
+.btn-ghost{background:transparent;color:rgba(255,255,255,0.65);padding:13px 32px;font-size:0.83rem;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.2);transition:border-color 0.2s,color 0.2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.5);color:#fff}
+
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-right::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to right,rgba(11,61,26,0.4) 0%,transparent 50%);
+}
+.hero-badge{
+  position:absolute;bottom:36px;left:36px;z-index:2;
+  background:rgba(11,61,26,0.9);border:1px solid rgba(255,255,255,0.12);
+  padding:16px 22px;display:flex;align-items:center;gap:14px;
+}
+.hero-badge img{width:40px;height:40px;object-fit:contain}
+.hero-badge-text p{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:2px}
+.hero-badge-text strong{font-size:0.88rem;color:#fff;font-weight:500}
+
+/* ─── STATS BAR ─── */
+.stats-bar{
+  background:#145c28;display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.stat-item{
+  padding:28px 32px;border-right:1px solid rgba(255,255,255,0.08);
+  display:flex;flex-direction:column;gap:4px;
+}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Oswald',sans-serif;font-size:2.2rem;font-weight:600;color:#fff;line-height:1}
+.stat-lbl{font-size:0.72rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+
+/* ─── SECTION COMMON ─── */
+.section{padding:100px 56px}
+.section-inner{max-width:1160px;margin:0 auto}
+.eyebrow{font-size:0.7rem;letter-spacing:3.5px;text-transform:uppercase;color:#1b9e8e;font-weight:500;margin-bottom:14px}
+.section-heading{font-family:'Oswald',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:500;line-height:1.05;letter-spacing:1px;margin-bottom:36px;color:#0b3d1a}
+.rule{width:48px;height:2px;background:#145c28;margin-bottom:52px}
+
+/* ─── MISSION / VISION ─── */
+#mission{background:#fff;padding:100px 56px}
+.mv-layout{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e0d9ce}
+.mv-panel{background:#fff;padding:64px 60px}
+.mv-panel.vision{background:#0b3d1a}
+.mv-panel h3{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:#1b9e8e;margin-bottom:28px}
+.mv-panel.vision h3{color:rgba(255,255,255,0.45)}
+.mv-panel blockquote{font-family:'Source Serif 4',serif;font-size:1.25rem;line-height:1.75;font-weight:300;color:#2a2a22;font-style:italic}
+.mv-panel.vision blockquote{color:rgba(255,255,255,0.8)}
+
+/* ─── VALUES ─── */
+#values{background:#f0ece3;padding:100px 56px}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#d4ccc0;margin-top:52px}
+.value-item{background:#f0ece3;padding:40px 36px}
+.value-item:hover{background:#e8dfd0}
+.value-num{font-family:'Oswald',sans-serif;font-size:0.7rem;letter-spacing:3px;color:#aaa497;margin-bottom:16px}
+.value-item h4{font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:500;letter-spacing:1px;color:#0b3d1a;margin-bottom:10px}
+.value-item p{font-size:0.88rem;line-height:1.65;color:#5a5a4e}
+
+/* ─── PROGRAMS ─── */
+#programs{background:#0b3d1a;padding:100px 56px}
+#programs .section-heading{color:#fff}
+#programs .rule{background:#29a84a}
+.programs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,0.06)}
+.program-card{background:#0d421c;padding:44px 36px;position:relative;overflow:hidden;transition:background 0.25s}
+.program-card:hover{background:#112d17}
+.program-card::before{content:attr(data-n);font-family:'Oswald',sans-serif;font-size:6rem;font-weight:700;color:rgba(255,255,255,0.03);position:absolute;bottom:-10px;right:16px;line-height:1}
+.program-card h3{font-family:'Oswald',sans-serif;font-size:1.15rem;font-weight:500;letter-spacing:1px;color:#fff;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.program-card p{font-size:0.86rem;line-height:1.7;color:rgba(255,255,255,0.55)}
+.program-tag{display:inline-block;margin-top:20px;font-size:0.66rem;letter-spacing:2px;text-transform:uppercase;color:#29a84a;border-top:1px solid #29a84a;padding-top:8px}
+
+/* ─── ACTIVITIES GRID ─── */
+#activities{background:#fff;padding:100px 56px}
+.gallery-intro{max-width:560px;margin-bottom:0}
+.gallery-intro p{font-family:'Source Serif 4',serif;font-size:1.05rem;line-height:1.8;color:#5a5a4e;font-weight:300}
+.activities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.act-card{background:#f0ece3;border:1px solid #e0d9ce;overflow:hidden;transition:transform 0.25s,box-shadow 0.25s}
+.act-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(11,61,26,0.1)}
+.act-img{position:relative;aspect-ratio:4/3;overflow:hidden}
+.act-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease}
+.act-card:hover .act-img img{transform:scale(1.05)}
+.act-tag{position:absolute;top:14px;left:14px;background:#0b3d1a;color:#29a84a;font-size:0.62rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;padding:5px 12px}
+.act-body{padding:24px 26px 28px}
+.act-body h4{font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:500;letter-spacing:1px;color:#0b3d1a;margin-bottom:10px}
+.act-body p{font-size:0.86rem;line-height:1.7;color:#5a5a4e}
+@media(max-width:900px){.activities-grid{grid-template-columns:1fr}}
+
+/* ─── ABOUT ─── */
+#about{background:#e8dfd0;padding:100px 56px}
+.about-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+.about-img-stack{position:relative}
+.about-img-main{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.about-img-inset{
+  position:absolute;bottom:-28px;right:-28px;
+  width:55%;aspect-ratio:1;object-fit:cover;
+  border:5px solid #e8dfd0;
+}
+.about-text{padding-top:12px}
+.about-text .section-heading{margin-bottom:24px}
+.about-body{font-family:'Source Serif 4',serif;font-size:1.05rem;line-height:1.85;color:#3a3a30;font-weight:300;margin-bottom:16px}
+.about-body strong{font-weight:600;color:#0b3d1a}
+.about-strip{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#d4ccc0}
+.about-strip-item{background:#e8dfd0;padding:28px 24px}
+.about-strip-item .n{font-family:'Oswald',sans-serif;font-size:2rem;font-weight:600;color:#0b3d1a;margin-bottom:4px}
+.about-strip-item .l{font-size:0.72rem;letter-spacing:1.5px;text-transform:uppercase;color:#888076}
+
+/* ─── CONTACT ─── */
+#contact{background:#0b3d1a;padding:100px 56px}
+#contact .section-heading{color:#fff}
+#contact .rule{background:#29a84a}
+.contact-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:80px}
+.contact-left p{font-family:'Source Serif 4',serif;font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,0.55);font-weight:300;margin-bottom:44px}
+.contact-details{display:flex;flex-direction:column;gap:28px}
+.c-row{display:flex;gap:18px;align-items:flex-start}
+.c-label{font-size:0.66rem;letter-spacing:2.5px;text-transform:uppercase;color:#29a84a;font-weight:500;margin-bottom:4px}
+.c-val{font-size:0.9rem;color:rgba(255,255,255,0.65);line-height:1.5}
+.contact-form{display:flex;flex-direction:column;gap:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fg{display:flex;flex-direction:column;gap:8px}
+.fg label{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);font-weight:500}
+.fg input,.fg textarea,.fg select{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  color:#fff;padding:13px 16px;
+  font-family:'DM Sans',sans-serif;font-size:0.9rem;
+  outline:none;transition:border-color 0.2s;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:rgba(41,168,74,0.6)}
+.fg textarea{min-height:130px;resize:vertical}
+.fg select option{background:#0d421c}
+.form-send{background:#29a84a;color:#fff;border:none;padding:14px 36px;font-family:'DM Sans',sans-serif;font-size:0.83rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;align-self:flex-start;transition:background 0.2s}
+.form-send:hover{background:#1e8038}
+
+/* ─── FOOTER ─── */
+footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64px 56px 36px}
+.footer-inner{max-width:1160px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:56px}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.footer-logo{width:42px;height:42px;object-fit:contain}
+.footer-wordmark{font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:600;letter-spacing:4px;color:#fff}
+.footer-tagline{font-size:0.85rem;line-height:1.7;color:rgba(255,255,255,0.3);max-width:320px}
+.fc h5{font-size:0.66rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:20px;font-weight:500}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.fc ul a{color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.88rem;transition:color 0.2s}
+.fc ul a:hover{color:#29a84a}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{font-size:0.75rem;color:rgba(255,255,255,0.2)}
+
+/* ─── SCROLL REVEAL ─── */
+.sr{opacity:0;transform:translateY(22px);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1),transform 0.65s cubic-bezier(0.22,1,0.36,1)}
+.sr.on{opacity:1;transform:none}
+.sr-delay-1{transition-delay:0.1s}
+.sr-delay-2{transition-delay:0.18s}
+.sr-delay-3{transition-delay:0.26s}
+.sr-delay-4{transition-delay:0.34s}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  #hero{grid-template-columns:1fr;height:auto}
+  .hero-right{height:280px}
+  .hero-left{padding:60px 28px}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .section{padding:72px 28px}
+  #mission,#values,#programs,#activities,#about,#contact{padding:72px 28px}
+  footer{padding:56px 28px 32px}
+  .mv-layout,.programs-grid,.values-grid,.gallery-masonry,.about-layout,.contact-layout,.footer-top{grid-template-columns:1fr}
+  .gal-item.tall,.gal-item.wide{grid-column:auto;grid-row:auto}
+  .about-img-inset{display:none}
+  .form-row{grid-template-columns:1fr}
+  .footer-top{gap:36px}
+  .stat-item{padding:22px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <img class="nav-logo" src="images/logo.jpg" onerror="this.style.display='none'" alt="IVEERS Logo"/>
+    <span class="nav-wordmark">IVEERS</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#activities">Activities</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-join" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Join Us</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-kicker">Naga City &nbsp;·&nbsp; Camarines Sur &nbsp;·&nbsp; Bicol Region</p>
+    <h1 class="hero-title">Protect.<em>Respond.</em>Serve.</h1>
+    <p class="hero-desc">Frontline volunteers defending Mt. Isarog and the communities of Bicol through environmental stewardship and emergency preparedness.</p>
+    <div class="hero-actions">
+      <a href="#programs" class="btn-solid">Our Programs</a>
+      <a href="#about" class="btn-ghost">Who We Are</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- camp.jpg — group shot / action photo works great as hero -->
+    <img src="images/camp.jpg"
+         alt="IVEERS volunteers at camp"/>
+    <div class="hero-badge">
+      <img src="images/logo.jpg" onerror="this.style.display='none'" alt="IVEERS"/>
+      <div class="hero-badge-text">
+        <p>Est. Naga City</p>
+        <strong>Isarog Volunteer Environmental Emergency Response Service</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item sr"><span class="stat-num">100+</span><span class="stat-lbl">Active Volunteers</span></div>
+  <div class="stat-item sr sr-delay-1"><span class="stat-num">50+</span><span class="stat-lbl">Operations Completed</span></div>
+  <div class="stat-item sr sr-delay-2"><span class="stat-num">10+</span><span class="stat-lbl">Partner Agencies</span></div>
+  <div class="stat-item sr sr-delay-3"><span class="stat-num">6</span><span class="stat-lbl">Active Programs</span></div>
+</div>
+
+<!-- MISSION & VISION -->
+<section id="mission" style="padding:100px 56px;background:#fff">
+  <div class="section-inner">
+    <p class="eyebrow sr">Our Purpose</p>
+    <h2 class="section-heading sr">Mission &amp; Vision</h2>
+    <div class="rule sr"></div>
+    <div class="mv-layout sr">
+      <div class="mv-panel">
+        <h3>Mission</h3>
+        <blockquote>"To protect and preserve the natural environment of Mt. Isarog and surrounding communities through proactive environmental stewardship, emergency response readiness, and community education — empowering every volunteer to be a guardian of nature."</blockquote>
+      </div>
+      <div class="mv-panel vision">
+        <h3>Vision</h3>
+        <blockquote>"A resilient Bicol Region where communities, ecosystems, and wildlife thrive in harmony — sustained by a well-trained, values-driven network of environmental emergency responders committed to the protection of Mt. Isarog and its biodiversity."</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section id="values" style="background:#f0ece3;padding:100px 56px">
+  <div class="section-inner">
+    <p class="eyebrow sr">What Drives Us</p>
+    <h2 class="section-heading sr">Core Values</h2>
+    <div class="rule sr"></div>
+    <div class="values-grid">
+      <div class="value-item sr"><div class="value-num">01</div><h4>Protection</h4><p>Safeguarding life, ecosystems, and communities against environmental threats at all times.</p></div>
+      <div class="value-item sr sr-delay-1"><div class="value-num">02</div><h4>Volunteerism</h4><p>Service above self — every action driven by genuine commitment to the communities we serve.</p></div>
+      <div class="value-item sr sr-delay-2"><div class="value-num">03</div><h4>Sustainability</h4><p>Promoting practices that preserve nature for the future generations of Bicolanos.</p></div>
+      <div class="value-item sr sr-delay-3"><div class="value-num">04</div><h4>Readiness</h4><p>Always prepared — trained and equipped to respond swiftly when communities need us most.</p></div>
+      <div class="value-item sr sr-delay-1"><div class="value-num">05</div><h4>Education</h4><p>Building an informed community through environmental awareness campaigns and literacy programs.</p></div>
+      <div class="value-item sr sr-delay-2"><div class="value-num">06</div><h4>Biodiversity</h4><p>Honoring and actively protecting the rich flora and fauna of the Isarog landscape and watershed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" style="background:#0b3d1a;padding:100px 56px">
+  <div class="section-inner">
+    <p class="eyebrow sr">What We Do</p>
+    <h2 class="section-heading sr" style="color:#fff">Programs</h2>
+    <div class="rule sr"></div>
+    <div class="programs-grid">
+      <div class="program-card sr" data-n="01"><h3>Emergency Response</h3><p>Rapid-deployment units trained for floods, landslides, and forest fires — coordinating with LGUs and NDRRMC for swift community protection.</p><span class="program-tag">Disaster Response</span></div>
+      <div class="program-card sr sr-delay-1" data-n="02"><h3>Forest &amp; Wildlife Protection</h3><p>Patrolling the Mt. Isarog Natural Park, protecting endangered species, and assisting DENR in habitat restoration and anti-poaching efforts.</p><span class="program-tag">Conservation</span></div>
+      <div class="program-card sr sr-delay-2" data-n="03"><h3>Watershed Management</h3><p>Protecting river systems through clean-up drives, water quality monitoring, and reforestation of critical watershed areas in Camarines Sur.</p><span class="program-tag">Water Conservation</span></div>
+      <div class="program-card sr" data-n="04"><h3>Community Education</h3><p>Seminars, workshops, and outreach in schools and barangays — turning community members into informed environmental advocates.</p><span class="program-tag">Outreach</span></div>
+      <div class="program-card sr sr-delay-1" data-n="05"><h3>Reforestation Drives</h3><p>Organizing tree-planting in denuded areas of the Isarog range, in partnership with DENR and local government, to restore biodiversity and prevent erosion.</p><span class="program-tag">Reforestation</span></div>
+      <div class="program-card sr sr-delay-2" data-n="06"><h3>Volunteer Training</h3><p>Equipping members with first aid, swift water rescue, fire suppression, land navigation, and environmental monitoring skills through regular drills.</p><span class="program-tag">Capacity Building</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES / GALLERY -->
+<section id="activities" style="background:#fff;padding:100px 56px">
+  <div class="section-inner">
+    <p class="eyebrow sr">In the Field</p>
+    <h2 class="section-heading sr">Our Activities</h2>
+    <div class="rule sr"></div>
+    <div class="gallery-intro sr">
+      <p>From forest patrols to coastal clean-ups, typhoon response to classroom education — IVEERS volunteers show up wherever nature and community need defending.</p>
+    </div>
+
+    <div class="activities-grid">
+
+      <div class="act-card sr">
+        <div class="act-img">
+          <img src="images/tree_planting.jpg" alt="Reforestation Drive"/>
+          <div class="act-tag">Conservation</div>
+        </div>
+        <div class="act-body">
+          <h4>Reforestation Drive</h4>
+          <p>Planting native tree species across denuded areas of Mt. Isarog to restore biodiversity, prevent soil erosion, and protect watershed systems.</p>
+        </div>
+      </div>
+
+      <div class="act-card sr sr-delay-1">
+        <div class="act-img">
+          <img src="images/swimming.jpg" alt="Water Rescue Training"/>
+          <div class="act-tag">Training</div>
+        </div>
+        <div class="act-body">
+          <h4>Water Rescue Training</h4>
+          <p>Swift water rescue drills and swimming proficiency training to prepare volunteers for flood response and aquatic emergency operations.</p>
+        </div>
+      </div>
+
+      <div class="act-card sr sr-delay-2">
+        <div class="act-img">
+          <img src="images/bandage.jpg" alt="First Aid Training"/>
+          <div class="act-tag">Training</div>
+        </div>
+        <div class="act-body">
+          <h4>First Aid &amp; Medical Response</h4>
+          <p>Hands-on first aid certification and field medical response training equipping every IVEERS member to stabilize casualties during emergencies.</p>
+        </div>
+      </div>
+
+      <div class="act-card sr">
+        <div class="act-img">
+          <img src="images/camp.jpg" alt="Field Operations Camp"/>
+          <div class="act-tag">Operations</div>
+        </div>
+        <div class="act-body">
+          <h4>Field Operations Camp</h4>
+          <p>Multi-day field camps simulating real disaster scenarios — testing navigation, communication, logistics, and team coordination under pressure.</p>
+        </div>
+      </div>
+
+      <div class="act-card sr sr-delay-1">
+        <div class="act-img">
+          <img src="images/camp1.jpg" alt="Team Deployment"/>
+          <div class="act-tag">Response</div>
+        </div>
+        <div class="act-body">
+          <h4>Team Deployment</h4>
+          <p>Rapid deployment of volunteer units to communities affected by typhoons, landslides, and other natural disasters across the Bicol Region.</p>
+        </div>
+      </div>
+
+      <div class="act-card sr sr-delay-2">
+        <div class="act-img">
+          <img src="images/iveers_unif1.jpg" alt="IVEERS Volunteers"/>
+          <div class="act-tag">Community</div>
+        </div>
+        <div class="act-body">
+          <h4>IVEERS Volunteers</h4>
+          <p>A dedicated corps of trained environmental emergency responders — uniformed, disciplined, and always ready to serve Naga City and Camarines Sur.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background:#e8dfd0;padding:100px 56px">
+  <div class="section-inner">
+    <div class="about-layout">
+      <div class="about-img-stack sr">
+        <!-- iveers_unif.jpg — main portrait/group shot -->
+        <img class="about-img-main"
+             src="images/iveers_unif.jpg"
+             alt="IVEERS volunteers in uniform"/>
+        <!-- iveers_unif1.jpg — inset secondary photo -->
+        <img class="about-img-inset"
+             src="images/iveers_unif1.jpg"
+             alt="IVEERS team"/>
+      </div>
+      <div class="about-text">
+        <p class="eyebrow sr">Who We Are</p>
+        <h2 class="section-heading sr">About IVEERS</h2>
+        <div class="rule sr"></div>
+        <p class="about-body sr">The <strong>Isarog Volunteer Environmental Emergency Response Service (IVEERS)</strong> is a non-government volunteer organization based in Naga City, Camarines Sur, dedicated to the protection of Mt. Isarog and the broader Bicol environment.</p>
+        <p class="about-body sr sr-delay-1">Founded by a core group of outdoor enthusiasts, DENR advocates, and community responders, IVEERS bridges the gap between environmental conservation and disaster preparedness — mobilizing trained volunteers for everything from typhoon rescue to biodiversity monitoring.</p>
+        <p class="about-body sr sr-delay-2">Our members come from all walks of life, united by a shared love for nature and a deep sense of duty to the people and ecosystems of Camarines Sur.</p>
+        <div class="about-strip sr sr-delay-3">
+          <div class="about-strip-item"><div class="n">100+</div><div class="l">Active Volunteers</div></div>
+          <div class="about-strip-item"><div class="n">50+</div><div class="l">Operations Done</div></div>
+          <div class="about-strip-item"><div class="n">10+</div><div class="l">Partner Agencies</div></div>
+          <div class="about-strip-item"><div class="n">6</div><div class="l">Programs Running</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:#0b3d1a;padding:100px 56px">
+  <div class="section-inner">
+    <p class="eyebrow sr">Get In Touch</p>
+    <h2 class="section-heading sr" style="color:#fff">Contact Us</h2>
+    <div class="rule sr"></div>
+    <div class="contact-layout">
+      <div class="contact-left sr">
+        <p>Whether you want to volunteer, partner with us, report an environmental concern, or learn more about IVEERS — we would love to hear from you.</p>
+        <div class="contact-details">
+          <div class="c-row">
+            <div>
+              <div class="c-label">Location</div>
+              <div class="c-val">Naga City, Camarines Sur<br>Bicol Region, Philippines</div>
+            </div>
+          </div>
+          <div class="c-row">
+            <div>
+              <div class="c-label">Email</div>
+              <div class="c-val">info@iveers.org</div>
+            </div>
+          </div>
+          <div class="c-row">
+            <div>
+              <div class="c-label">Facebook</div>
+              <div class="c-val">
+              <a href="https://www.facebook.com/profile.php?id=100075522653179" 
+              target="_blank" style="color:rgba(255,255,255,0.65);text-decoration:none">facebook.com/iveers</a>
+              </div>
+            </div>
+          </div>
+          <div class="c-row">
+            <div>
+              <div class="c-label">Operating Area</div>
+              <div class="c-val">Mt. Isarog Natural Park &amp; Bicol Region</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form sr sr-delay-1">
+        <div class="form-row">
+          <div class="fg"><label>First Name</label><input type="text" placeholder="Juan"/></div>
+          <div class="fg"><label>Last Name</label><input type="text" placeholder="dela Cruz"/></div>
+        </div>
+        <div class="fg"><label>Email Address</label><input type="email" placeholder="juan@email.com"/></div>
+        <div class="fg">
+          <label>Subject</label>
+          <select>
+            <option value="">Select a topic...</option>
+            <option>Volunteer Application</option>
+            <option>Partnership Inquiry</option>
+            <option>Report Environmental Concern</option>
+            <option>Donation / Support</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="fg"><label>Message</label><textarea placeholder="Write your message here..."></textarea></div>
+        <button class="form-send">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <img class="footer-logo" src="images/logo.jpg" onerror="this.style.display='none'" alt="IVEERS"/>
+          <span class="footer-wordmark">IVEERS</span>
+        </div>
+        <p class="footer-tagline">Isarog Volunteer Environmental Emergency Response Service — protecting Mt. Isarog and the communities of Bicol, one mission at a time.</p>
+      </div>
+      <div class="fc">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#mission">Mission &amp; Vision</a></li>
+          <li><a href="#values">Core Values</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#activities">Activities</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
+      </div>
+      <div class="fc">
+        <h5>Get Involved</h5>
+        <ul>
+          <li><a href="#contact">Volunteer</a></li>
+          <li><a href="#contact">Partner With Us</a></li>
+          <li><a href="#contact">Donate</a></li>
+          <li><a href="#contact">Report a Concern</a></li>
+          <li><a href="#contact">Join a Training</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 IVEERS — Isarog Volunteer Environmental Emergency Response Service. All rights reserved.</p>
+      <p style="color:rgba(255,255,255,0.15);font-size:0.72rem">Naga City, Camarines Sur, Philippines</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const els = document.querySelectorAll('.sr');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
