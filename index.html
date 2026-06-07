@@ -4,6 +4,16 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>IVEERS — Isarog Volunteer Environmental Emergency Response Service</title>
+<meta name="description" content="IVEERS is a non-government volunteer organization based in Naga City, Camarines Sur, dedicated to protecting Mt. Isarog and the Bicol environment through emergency response and conservation."/>
+<meta name="keywords" content="IVEERS, Isarog, volunteer, environmental, emergency response, Naga City, Camarines Sur, Bicol, Mt. Isarog, conservation"/>
+<meta property="og:title" content="IVEERS — Isarog Volunteer Environmental Emergency Response Service"/>
+<meta property="og:description" content="Frontline volunteers defending Mt. Isarog and the communities of Bicol through environmental stewardship and emergency preparedness."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://iveers.vercel.app/"/>
+<meta property="og:image" content="images/logo.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="IVEERS — Isarog Volunteer Environmental Emergency Response Service"/>
+<meta name="twitter:description" content="Frontline volunteers defending Mt. Isarog and the communities of Bicol."/>
 <link rel="icon" type="image/png" href="images/logo.jpg">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -195,6 +205,10 @@ nav{
 .fg select option{background:#0d421c}
 .form-send{background:#29a84a;color:#fff;border:none;padding:14px 36px;font-family:'DM Sans',sans-serif;font-size:0.83rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;align-self:flex-start;transition:background 0.2s}
 .form-send:hover{background:#1e8038}
+.form-send:disabled{background:#145c28;cursor:not-allowed;opacity:0.6}
+.form-msg{font-size:0.85rem;padding:12px 16px;border-radius:2px;display:none}
+.form-msg.success{display:block;background:rgba(41,168,74,0.15);border:1px solid rgba(41,168,74,0.3);color:#29a84a}
+.form-msg.error{display:block;background:rgba(220,50,50,0.15);border:1px solid rgba(220,50,50,0.3);color:#ff6b6b}
 
 /* ─── FOOTER ─── */
 footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64px 56px 36px}
@@ -269,9 +283,7 @@ footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64
     </div>
   </div>
   <div class="hero-right">
-    <!-- camp.jpg — group shot / action photo works great as hero -->
-    <img src="images/camp.jpg"
-         alt="IVEERS volunteers at camp"/>
+    <img src="images/camp.jpg" alt="IVEERS volunteers at camp"/>
     <div class="hero-badge">
       <img src="images/logo.jpg" onerror="this.style.display='none'" alt="IVEERS"/>
       <div class="hero-badge-text">
@@ -334,7 +346,8 @@ footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64
     <div class="rule sr"></div>
     <div class="programs-grid">
       <div class="program-card sr" data-n="01"><h3>Emergency Response</h3><p>Rapid-deployment units trained for floods, landslides, and forest fires — coordinating with LGUs and NDRRMC for swift community protection.</p><span class="program-tag">Disaster Response</span></div>
-<div class="program-card sr sr-delay-1" data-n="02"><h3>Environmental Stewardship</h3><p>Leading clean-up drives, waste management campaigns, and environmental monitoring initiatives to protect the natural resources of Mt. Isarog and surrounding communities.</p><span class="program-tag">Conservation</span></div>      <div class="program-card sr sr-delay-2" data-n="03"><h3>Watershed Management</h3><p>Protecting river systems through clean-up drives, water quality monitoring, and reforestation of critical watershed areas in Camarines Sur.</p><span class="program-tag">Water Conservation</span></div>
+      <div class="program-card sr sr-delay-1" data-n="02"><h3>Environmental Stewardship</h3><p>Leading clean-up drives, waste management campaigns, and environmental monitoring initiatives to protect the natural resources of Mt. Isarog and surrounding communities.</p><span class="program-tag">Conservation</span></div>
+      <div class="program-card sr sr-delay-2" data-n="03"><h3>Watershed Management</h3><p>Protecting river systems through clean-up drives, water quality monitoring, and reforestation of critical watershed areas in Camarines Sur.</p><span class="program-tag">Water Conservation</span></div>
       <div class="program-card sr" data-n="04"><h3>Community Education</h3><p>Seminars, workshops, and outreach in schools and barangays — turning community members into informed environmental advocates.</p><span class="program-tag">Outreach</span></div>
       <div class="program-card sr sr-delay-1" data-n="05"><h3>Reforestation Drives</h3><p>Organizing tree-planting in denuded areas of the Isarog range, in partnership with DENR and local government, to restore biodiversity and prevent erosion.</p><span class="program-tag">Reforestation</span></div>
       <div class="program-card sr sr-delay-2" data-n="06"><h3>Volunteer Training</h3><p>Equipping members with first aid, swift water rescue, fire suppression, land navigation, and environmental monitoring skills through regular drills.</p><span class="program-tag">Capacity Building</span></div>
@@ -351,9 +364,7 @@ footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64
     <div class="gallery-intro sr">
       <p>From forest patrols to coastal clean-ups, typhoon response to classroom education — IVEERS volunteers show up wherever nature and community need defending.</p>
     </div>
-
     <div class="activities-grid">
-
       <div class="act-card sr">
         <div class="act-img">
           <img src="images/tree_planting.jpg" alt="Reforestation Drive"/>
@@ -364,7 +375,6 @@ footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64
           <p>Planting native tree species across denuded areas of Mt. Isarog to restore biodiversity, prevent soil erosion, and protect watershed systems.</p>
         </div>
       </div>
-
       <div class="act-card sr sr-delay-1">
         <div class="act-img">
           <img src="images/swimming.jpg" alt="Water Rescue Training"/>
@@ -375,7 +385,6 @@ footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64
           <p>Swift water rescue drills and swimming proficiency training to prepare volunteers for flood response and aquatic emergency operations.</p>
         </div>
       </div>
-
       <div class="act-card sr sr-delay-2">
         <div class="act-img">
           <img src="images/bandage.jpg" alt="First Aid Training"/>
@@ -386,7 +395,6 @@ footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64
           <p>Hands-on first aid certification and field medical response training equipping every IVEERS member to stabilize casualties during emergencies.</p>
         </div>
       </div>
-
       <div class="act-card sr">
         <div class="act-img">
           <img src="images/camp.jpg" alt="Field Operations Camp"/>
@@ -397,17 +405,16 @@ footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64
           <p>Multi-day field camps simulating real disaster scenarios — testing navigation, communication, logistics, and team coordination under pressure.</p>
         </div>
       </div>
-
       <div class="act-card sr sr-delay-1">
         <div class="act-img">
           <img src="images/typhoon.jpg" alt="Team Deployment"/>
           <div class="act-tag">Response</div>
         </div>
         <div class="act-body">
-          <h4>Typhoon Response & Evacuationt</h4>
-        <p>Walking through flooded roads, checking on affected households, and assisting evacuees during typhoons and natural disasters across the Bicol Region.</p>        </div>
+          <h4>Typhoon Response &amp; Evacuation</h4>
+          <p>Walking through flooded roads, checking on affected households, and assisting evacuees during typhoons and natural disasters across the Bicol Region.</p>
+        </div>
       </div>
-
       <div class="act-card sr sr-delay-2">
         <div class="act-img">
           <img src="images/iveers_unif1.jpg" alt="IVEERS Volunteers"/>
@@ -418,7 +425,6 @@ footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64
           <p>A dedicated corps of trained environmental emergency responders — uniformed, disciplined, and always ready to serve Naga City and Camarines Sur.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -428,14 +434,8 @@ footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64
   <div class="section-inner">
     <div class="about-layout">
       <div class="about-img-stack sr">
-        <!-- iveers_unif.jpg — main portrait/group shot -->
-        <img class="about-img-main"
-             src="images/iveers_unif.jpg"
-             alt="IVEERS volunteers in uniform"/>
-        <!-- iveers_unif1.jpg — inset secondary photo -->
-        <img class="about-img-inset"
-             src="images/iveers_unif1.jpg"
-             alt="IVEERS team"/>
+        <img class="about-img-main" src="images/iveers_unif.jpg" alt="IVEERS volunteers in uniform"/>
+        <img class="about-img-inset" src="images/iveers_unif1.jpg" alt="IVEERS team"/>
       </div>
       <div class="about-text">
         <p class="eyebrow sr">Who We Are</p>
@@ -473,16 +473,25 @@ footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64
           </div>
           <div class="c-row">
             <div>
+              <div class="c-label">Phone</div>
+              <div class="c-val">07578702030</div>
+            </div>
+          </div>
+          <div class="c-row">
+            <div>
               <div class="c-label">Email</div>
-              <div class="c-val">info@iveers.org</div>
+              <div class="c-val">
+                <a href="https://mail.google.com/mail/?view=cm&to=acfredopivers@gmail.com"
+                target="_blank" style="color:rgba(255,255,255,0.65);text-decoration:none">acfredopivers@gmail.com</a>
+              </div>
             </div>
           </div>
           <div class="c-row">
             <div>
               <div class="c-label">Facebook</div>
               <div class="c-val">
-              <a href="https://www.facebook.com/profile.php?id=100075522653179" 
-              target="_blank" style="color:rgba(255,255,255,0.65);text-decoration:none">facebook.com/iveers</a>
+                <a href="https://www.facebook.com/profile.php?id=100075522653179"
+                target="_blank" style="color:rgba(255,255,255,0.65);text-decoration:none">facebook.com/iveers</a>
               </div>
             </div>
           </div>
@@ -495,24 +504,29 @@ footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64
         </div>
       </div>
       <div class="contact-form sr sr-delay-1">
-        <div class="form-row">
-          <div class="fg"><label>First Name</label><input type="text" placeholder="Juan"/></div>
-          <div class="fg"><label>Last Name</label><input type="text" placeholder="dela Cruz"/></div>
-        </div>
-        <div class="fg"><label>Email Address</label><input type="email" placeholder="juan@email.com"/></div>
-        <div class="fg">
-          <label>Subject</label>
-          <select>
-            <option value="">Select a topic...</option>
-            <option>Volunteer Application</option>
-            <option>Partnership Inquiry</option>
-            <option>Report Environmental Concern</option>
-            <option>Donation / Support</option>
-            <option>General Inquiry</option>
-          </select>
-        </div>
-        <div class="fg"><label>Message</label><textarea placeholder="Write your message here..."></textarea></div>
-        <button class="form-send">Send Message</button>
+        <form id="contact-form" action="https://formspree.io/f/xykaeklp" method="POST">
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <div class="form-row">
+              <div class="fg"><label>First Name</label><input type="text" name="first_name" placeholder="Juan" required/></div>
+              <div class="fg"><label>Last Name</label><input type="text" name="last_name" placeholder="dela Cruz" required/></div>
+            </div>
+            <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="juan@email.com" required/></div>
+            <div class="fg">
+              <label>Subject</label>
+              <select name="subject" required>
+                <option value="">Select a topic...</option>
+                <option>Volunteer Application</option>
+                <option>Partnership Inquiry</option>
+                <option>Report Environmental Concern</option>
+                <option>Donation / Support</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
+            <div class="fg"><label>Message</label><textarea name="message" placeholder="Write your message here..." required></textarea></div>
+            <div class="form-msg" id="form-msg"></div>
+            <button type="submit" class="form-send" id="form-btn">Send Message</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -558,11 +572,46 @@ footer{background:#071a0b;border-top:1px solid rgba(255,255,255,0.06);padding:64
 </footer>
 
 <script>
+// ─── SCROLL REVEAL ───
 const els = document.querySelectorAll('.sr');
 const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); } });
 }, { threshold: 0.1 });
 els.forEach(el => obs.observe(el));
+
+// ─── FORMSPREE AJAX SUBMIT ───
+const form = document.getElementById('contact-form');
+const btn = document.getElementById('form-btn');
+const msg = document.getElementById('form-msg');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  msg.className = 'form-msg';
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      msg.textContent = '✓ Message sent! We will get back to you soon.';
+      msg.className = 'form-msg success';
+      form.reset();
+    } else {
+      throw new Error('Failed');
+    }
+  } catch {
+    msg.textContent = '✗ Something went wrong. Please email us directly at acfredopivers@gmail.com';
+    msg.className = 'form-msg error';
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Send Message';
+});
 </script>
 </body>
 </html>
